@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kumar Sushil J. | Machine Learning Engineer Portfolio</title>
+  <meta name="description" content="Portfolio of Kumar Sushil J., Machine Learning Engineer focused on scalable GenAI, predictive models, machine learning, data science, and AI-powered applications." />
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #111c33;
+      --card-soft: #17233f;
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+      --accent-2: #a78bfa;
+      --line: rgba(148, 163, 184, 0.22);
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
+      --radius: 24px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(56, 189, 248, 0.18), transparent 32rem),
+        radial-gradient(circle at top right, rgba(167, 139, 250, 0.16), transparent 30rem),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: rgba(15, 23, 42, 0.82);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      font-size: 1.08rem;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #020617;
+      box-shadow: 0 12px 28px rgba(56, 189, 248, 0.22);
+      font-weight: 900;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      color: var(--muted);
+      font-weight: 650;
+      font-size: 0.94rem;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .hero {
+      min-height: calc(100vh - 72px);
+      display: grid;
+      grid-template-columns: 1.12fr 0.88fr;
+      align-items: center;
+      gap: 48px;
+      padding: 72px 0;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: #bae6fd;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      background: rgba(56, 189, 248, 0.08);
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .pulse {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #22c55e;
+      box-shadow: 0 0 0 8px rgba(34, 197, 94, 0.12);
+    }
+
+    h1 {
+      font-size: clamp(2.7rem, 7vw, 5.8rem);
+      line-height: 0.96;
+      letter-spacing: -0.08em;
+      margin-bottom: 24px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #e0f2fe, #7dd3fc 45%, #c4b5fd 85%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      color: var(--muted);
+      max-width: 690px;
+      font-size: 1.08rem;
+      margin-bottom: 30px;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border-radius: 999px;
+      padding: 13px 18px;
+      font-weight: 800;
+      border: 1px solid transparent;
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #020617;
+    }
+
+    .btn-secondary {
+      border-color: var(--line);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text);
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      max-width: 680px;
+    }
+
+    .stat {
+      padding: 18px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.035);
+      border-radius: 20px;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.3rem;
+      color: var(--text);
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .profile-card {
+      position: relative;
+      padding: 28px;
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.035));
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .profile-card::before {
+      content: "";
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      background: rgba(56, 189, 248, 0.15);
+      top: -90px;
+      right: -90px;
+    }
+
+    .avatar {
+      position: relative;
+      width: 150px;
+      height: 150px;
+      border-radius: 42px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #172554, #312e81);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      margin-bottom: 24px;
+      font-size: 3rem;
+      font-weight: 900;
+      color: #bfdbfe;
+    }
+
+    .profile-card h2 {
+      position: relative;
+      font-size: 1.5rem;
+      letter-spacing: -0.03em;
+      margin-bottom: 8px;
+    }
+
+    .profile-card p {
+      position: relative;
+      color: var(--muted);
+      margin-bottom: 22px;
+    }
+
+    .quick-info {
+      position: relative;
+      display: grid;
+      gap: 12px;
+    }
+
+    .info-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--line);
+      color: var(--muted);
+    }
+
+    .info-row strong {
+      color: var(--text);
+      text-align: right;
+    }
+
+    section {
+      padding: 72px 0;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 34px;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 0.78rem;
+      margin-bottom: 8px;
+    }
+
+    h2.section-title {
+      font-size: clamp(2rem, 4vw, 3.1rem);
+      line-height: 1.04;
+      letter-spacing: -0.06em;
+    }
+
+    .section-copy {
+      color: var(--muted);
+      max-width: 520px;
+    }
+
+    .grid {
+      display: grid;
+      gap: 20px;
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.045);
+      border-radius: var(--radius);
+      padding: 24px;
+      transition: transform 0.22s ease, border-color 0.22s ease, background 0.22s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(56, 189, 248, 0.45);
+      background: rgba(255, 255, 255, 0.065);
+    }
+
+    .icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      background: rgba(56, 189, 248, 0.12);
+      color: #bae6fd;
+      font-size: 1.4rem;
+      margin-bottom: 18px;
+    }
+
+    .card h3 {
+      font-size: 1.16rem;
+      margin-bottom: 10px;
+      letter-spacing: -0.03em;
+    }
+
+    .card p,
+    .card li {
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 18px;
+    }
+
+    .tag {
+      border: 1px solid rgba(148, 163, 184, 0.22);
+      color: #cbd5e1;
+      background: rgba(15, 23, 42, 0.38);
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 0.78rem;
+      font-weight: 750;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 16px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 20px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.035);
+      border-radius: var(--radius);
+    }
+
+    .time {
+      color: var(--accent);
+      font-weight: 850;
+    }
+
+    .timeline-item h3 {
+      margin-bottom: 8px;
+    }
+
+    .project-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+    }
+
+    .project-top {
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 14px;
+    }
+
+    .project-number {
+      color: rgba(148, 163, 184, 0.38);
+      font-size: 1.4rem;
+      font-weight: 900;
+    }
+
+    .project-card .tags {
+      margin-top: auto;
+      padding-top: 20px;
+    }
+
+    .skills-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .skill-pill {
+      padding: 12px 14px;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.04);
+      color: #dbeafe;
+      font-weight: 750;
+    }
+
+    .contact-box {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 28px;
+      padding: 34px;
+      border-radius: 30px;
+      border: 1px solid rgba(56, 189, 248, 0.24);
+      background:
+        linear-gradient(135deg, rgba(56, 189, 248, 0.12), rgba(167, 139, 250, 0.1)),
+        rgba(255, 255, 255, 0.04);
+      box-shadow: var(--shadow);
+    }
+
+    .contact-box h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      letter-spacing: -0.06em;
+      line-height: 1.05;
+      margin-bottom: 10px;
+    }
+
+    .contact-box p {
+      color: var(--muted);
+      max-width: 680px;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 26px 0;
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.94rem;
+    }
+
+    .mobile-menu-note {
+      display: none;
+    }
+
+    @media (max-width: 900px) {
+      .hero,
+      .grid-2,
+      .grid-3,
+      .contact-box {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head {
+        align-items: start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .mobile-menu-note {
+        display: inline-flex;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      .timeline-item {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-stats {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a href="#top" class="brand" aria-label="Kumar Sushil J. Portfolio Home">
+        <span class="brand-mark">KS</span>
+        <span>Kumar Sushil J.</span>
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <span class="mobile-menu-note">Portfolio</span>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="container hero">
+      <div>
+        <div class="badge"><span class="pulse"></span>Machine Learning Engineer</div>
+        <h1>Architecting scalable <span class="gradient-text">GenAI & predictive models.</span></h1>
+        <p>
+          I am Kumar Sushil J., a Machine Learning Engineer focused on building practical AI systems,
+          scalable GenAI workflows, predictive models, and data-driven applications that turn complex data
+          into actionable intelligence.
+        </p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#projects">View Projects</a>
+          <a class="btn btn-secondary" href="mailto:your.email@example.com">Contact Me</a>
+          <a class="btn btn-secondary" href="https://www.linkedin.com/in/sushil-kumar-jagrawal/" target="_blank" rel="noreferrer">LinkedIn</a>
+        </div>
+        <div class="hero-stats" aria-label="Profile highlights">
+          <div class="stat">
+            <strong>B.Tech</strong>
+            <span>AI & Data Science</span>
+          </div>
+          <div class="stat">
+            <strong>2020–2024</strong>
+            <span>Engineering timeline</span>
+          </div>
+          <div class="stat">
+            <strong>GenAI</strong>
+            <span>Predictive model focus</span>
+          </div>
+        </div>
+      </div>
+
+      <aside class="profile-card" aria-label="Profile summary card">
+        <div class="avatar">KS</div>
+        <h2>Machine Learning Engineer</h2>
+        <p>
+          Focused on scalable GenAI, predictive analytics, machine learning, and applied AI projects.
+          Interested in solving real-world problems using data, models, and clean software systems.
+        </p>
+        <div class="quick-info">
+          <div class="info-row"><span>Profile</span><strong>Kumar Sushil J.</strong></div>
+          <div class="info-row"><span>Role</span><strong>Machine Learning Engineer</strong></div>
+          <div class="info-row"><span>Education</span><strong>B.Tech AI & DS</strong></div>
+          <div class="info-row"><span>Open To</span><strong>AI/ML Projects & Internships</strong></div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="container" id="about">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">About Me</p>
+          <h2 class="section-title">I build AI systems that connect models with usable products.</h2>
+        </div>
+        <p class="section-copy">
+          My portfolio focuses on ML engineering, predictive modeling, GenAI systems, data science,
+          computer vision, and deployment-ready academic and practical projects.
+        </p>
+      </div>
+
+      <div class="grid grid-3">
+        <article class="card">
+          <div class="icon">🤖</div>
+          <h3>Machine Learning Engineering</h3>
+          <p>Model training, classification, regression, ensemble learning, preprocessing, evaluation, and practical ML integration.</p>
+        </article>
+        <article class="card">
+          <div class="icon">⚡</div>
+          <h3>GenAI & Predictive Models</h3>
+          <p>Building intelligent workflows that combine data understanding, predictive analytics, and AI-powered automation.</p>
+        </article>
+        <article class="card">
+          <div class="icon">📊</div>
+          <h3>Data Science Applications</h3>
+          <p>Data cleaning, visualization, dashboards, risk scoring, explainability, and decision-support systems.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="container" id="education">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Education</p>
+          <h2 class="section-title">Academic background and activities.</h2>
+        </div>
+        <p class="section-copy">
+          This section is filled from the publicly visible LinkedIn snippets available for your profile.
+        </p>
+      </div>
+
+      <div class="timeline">
+        <article class="timeline-item">
+          <div class="time">2020–2024</div>
+          <div>
+            <h3>B.Tech in Artificial Intelligence and Data Science</h3>
+            <p>
+              Undergraduate engineering background focused on AI, machine learning, data science, and applied technology systems.
+            </p>
+            <div class="tags">
+              <span class="tag">Artificial Intelligence</span>
+              <span class="tag">Data Science</span>
+              <span class="tag">Machine Learning</span>
+            </div>
+          </div>
+        </article>
+        <article class="timeline-item">
+          <div class="time">Activities</div>
+          <div>
+            <h3>Technical Activities & Societies</h3>
+            <p>
+              Participated in Udbhav Project Exhibition and The Smart City Hackathon, and listed Indian Society for Technical Education membership/activity.
+            </p>
+            <div class="tags">
+              <span class="tag">Udbhav Project Exhibition</span>
+              <span class="tag">Smart City Hackathon</span>
+              <span class="tag">ISTE</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="container" id="projects">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Featured Work</p>
+          <h2 class="section-title">Projects that show practical AI development.</h2>
+        </div>
+        <p class="section-copy">
+          Add your GitHub repository links or live demos when ready.
+        </p>
+      </div>
+
+      <div class="grid grid-2">
+        <article class="card project-card">
+          <div class="project-top">
+            <div>
+              <h3>Thyroid Disease Classification & Risk Stratification</h3>
+              <p>
+                A healthcare ML system using a Random Forest–XGBoost ensemble augmented with a neural network layer,
+                SMOTE-based resampling, structured missing-value imputation, risk stratification, and explainability.
+              </p>
+            </div>
+            <span class="project-number">01</span>
+          </div>
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">XGBoost</span>
+            <span class="tag">Random Forest</span>
+            <span class="tag">SMOTE</span>
+            <span class="tag">SHAP</span>
+          </div>
+        </article>
+
+        <article class="card project-card">
+          <div class="project-top">
+            <div>
+              <h3>SmartBoard Engagement Detection System</h3>
+              <p>
+                AI-powered smart classroom prototype with air canvas, emotion recognition, engagement scoring,
+                hand-raise gesture detection, attendance detection, teacher dashboard, and report generation.
+              </p>
+            </div>
+            <span class="project-number">02</span>
+          </div>
+          <div class="tags">
+            <span class="tag">Computer Vision</span>
+            <span class="tag">OpenCV</span>
+            <span class="tag">Emotion AI</span>
+            <span class="tag">Dashboard</span>
+          </div>
+        </article>
+
+        <article class="card project-card">
+          <div class="project-top">
+            <div>
+              <h3>House Price Prediction Flask App</h3>
+              <p>
+                Regression-based web application that predicts house prices using square footage, bedrooms,
+                bathrooms, offers, brick type, and neighborhood features.
+              </p>
+            </div>
+            <span class="project-number">03</span>
+          </div>
+          <div class="tags">
+            <span class="tag">Flask</span>
+            <span class="tag">Regression</span>
+            <span class="tag">Scikit-learn</span>
+            <span class="tag">Web App</span>
+          </div>
+        </article>
+
+        <article class="card project-card">
+          <div class="project-top">
+            <div>
+              <h3>Django Customer Type Prediction App</h3>
+              <p>
+                Django-based ML application that predicts customer type from income and score, demonstrating
+                model integration with a production-style Python web framework.
+              </p>
+            </div>
+            <span class="project-number">04</span>
+          </div>
+          <div class="tags">
+            <span class="tag">Django</span>
+            <span class="tag">ML Deployment</span>
+            <span class="tag">Python</span>
+            <span class="tag">Classification</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="container" id="skills">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Skills</p>
+          <h2 class="section-title">Technical toolkit.</h2>
+        </div>
+        <p class="section-copy">
+          Skills are organized around your Machine Learning Engineer positioning and AI & Data Science background.
+        </p>
+      </div>
+
+      <div class="skills-wrap">
+        <span class="skill-pill">Machine Learning</span>
+        <span class="skill-pill">GenAI</span>
+        <span class="skill-pill">Predictive Modeling</span>
+        <span class="skill-pill">Data Science</span>
+        <span class="skill-pill">Python</span>
+        <span class="skill-pill">Scikit-learn</span>
+        <span class="skill-pill">XGBoost</span>
+        <span class="skill-pill">Random Forest</span>
+        <span class="skill-pill">Neural Networks</span>
+        <span class="skill-pill">Pandas</span>
+        <span class="skill-pill">NumPy</span>
+        <span class="skill-pill">Matplotlib</span>
+        <span class="skill-pill">OpenCV</span>
+        <span class="skill-pill">Flask</span>
+        <span class="skill-pill">Django</span>
+        <span class="skill-pill">Streamlit</span>
+        <span class="skill-pill">Git & GitHub</span>
+        <span class="skill-pill">AI Application Development</span>
+      </div>
+    </section>
+
+    <section class="container" id="certifications">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Certifications & Learning</p>
+          <h2 class="section-title">Continuous learning profile.</h2>
+        </div>
+        <p class="section-copy">
+          Add exact certificate names from LinkedIn here if you want this section to match your profile one-to-one.
+        </p>
+      </div>
+
+      <div class="timeline">
+        <article class="timeline-item">
+          <div class="time">IBM</div>
+          <div>
+            <h3>Getting Started with Enterprise-grade AI</h3>
+            <p>Certificate and digital badge focused on enterprise-grade AI fundamentals.</p>
+          </div>
+        </article>
+        <article class="timeline-item">
+          <div class="time">IBM</div>
+          <div>
+            <h3>Getting Started with Threat Intelligence and Hunting</h3>
+            <p>Certificate and digital badge focused on threat intelligence and cyber hunting foundations.</p>
+          </div>
+        </article>
+        <article class="timeline-item">
+          <div class="time">Current</div>
+          <div>
+            <h3>AI, ML, Data Science & Optimization</h3>
+            <p>Learning and building projects around applied ML systems, AI applications, optimization, and deployment.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="container" id="contact">
+      <div class="contact-box">
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h2>Let’s build intelligent systems with data and AI.</h2>
+          <p>
+            I am open to AI/ML internships, machine learning projects, GenAI development, data science work,
+            and collaboration on practical AI-powered applications.
+          </p>
+        </div>
+        <div class="actions">
+          <a class="btn btn-primary" href="mailto:your.email@example.com">Email Me</a>
+          <a class="btn btn-secondary" href="https://github.com/your-github-username" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="btn btn-secondary" href="https://www.linkedin.com/in/sushil-kumar-jagrawal/" target="_blank" rel="noreferrer">LinkedIn</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © <span id="year"></span> Kumar Sushil J. Built for GitHub Pages.
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
